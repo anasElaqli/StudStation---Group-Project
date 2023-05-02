@@ -206,20 +206,22 @@ input::placeholder {
 
 /* System Option */
 .sys-icon {
-    border: 4px solid #01737b;
+    border: 4px solid #012629;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    width: 6rem;
-    height: 6rem;
-    margin-right: 2rem;
-    margin-left: 1rem;
-
+    margin-right: 4rem;
+    margin-left: 4rem;
     border-radius: 50%;
-}
+  
+    width: 5rem;
+    height: 5rem;
+  }
 
-.sys-icon:active, .sys-icon:focus, .sys-icon:hover{
+.sys-icon:active,
+.sys-icon:focus,
+.sys-icon:hover {
     border-color: rgb(255, 213, 0);
     box-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
-  }
+}
 
 .system-option {
     margin-bottom: 1.5rem;
@@ -229,7 +231,7 @@ input::placeholder {
     grid-gap: 1rem;
 }
 
-.icon-grid{
+.icon-grid {
     display: grid;
     grid-template-columns: repeat(1, auto);
     align-items: center;
