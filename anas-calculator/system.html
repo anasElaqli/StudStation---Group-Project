@@ -104,62 +104,30 @@
                 <div class="col12">
                     <div class="calc-container">
                         <div class="calc-title">
-                            Calculate Your Semester Average
+                            Choose a Grading System to Enter your Grades
                         </div>
                         <div class="calculator-card" id="calculator-card">
-                            <label for="numSubjects" class="num-text">Enter the number of subjects you have:</label>
-                            <input type="number" id="numSubjects" min="1" max="30" placeholder="e.g. 5" required>
-                            <div id="subjectInputs"></div>
-                            <div class="user-card-container" id="user-card-container">
-                                <div class="user-card" id="user-card" style="display: none;"></div>
-                            </div>
-                            <div class="btn-contaner" id="btn-contaner"><button id="next-btn"
-                                    class="next-btn btn btn-primary" onclick="validateForm()">Next</button></div>
-                            <div id="results"></div>
-                        </div>
-
-                        <!-- result -->
-                        <div class="result-div" id="result-div" style="display: none;">
-                            <div class="show-image2">
-                                <img src="../images-anas/data-analysis.svg" class="img2">
-                            </div>
-                            <div class="show-result" id="show-result">
-                                <h1 class="demo-title" id="title1">Your Average</h1>
-                            </div>
-                        </div>
-                        <!-- best grade -->
-                        <div class="result-div" id="best-grade" style="display: none;">
-                            <div class="show-image2">
-                                <img src="../images-anas/up.svg" class="img3">
-                            </div>
-                            <div class="show-result" id="show-max">
-                                <h1 class="demo-title" id="title2">Your Best Grade!</h1>
+                            <div class="system-option" id="system-option">
+                                <span class="icon-grid">
+                                    <a href="../anas-calculator/calculator.html"><img src="../icons/earth.svg" alt="Icon" class="sys-icon earth"></a>
+                                    <div>Percentage (%)</div>
+                                </span>
+                                <span class="icon-grid">
+                                    <a href=""><img src="../icons/united-states.svg" alt="Icon"
+                                            class="sys-icon usa"></a>
+                                    <div>GPA (grade/4.0)</div>
+                                </span>
+                                <span class="icon-grid">
+                                    <a href=""><img src="../icons/france.svg" alt="Icon" class="sys-icon france"></a>
+                                    <div>(grade/20)</div>
+                                </span>
+                                <span class="icon-grid">
+                                    <a href=""><img src="../icons/hungary.svg" alt="Icon" class="sys-icon hungary"></a>
+                                    <div>(grade/5)</div>
+                                </span>
                             </div>
                         </div>
-                        <!-- worst grade -->
-                        <div class="result-div" id="worst-grade" style="display: none;">
-                            <div class="show-image2">
-                                <img src="../images-anas/down.svg" class="img3">
-                            </div>
-                            <div class="show-result" id="show-min">
-                                <h1 class="demo-title" id="title3">Your worst Grade!</h1>
-                            </div>
-                        </div>
-
-                        <!-- goal evaluation -->
-                        <div class="result-div" id="evaluation-div" style="display: none;">
-                            <div class="show-image2">
-                                <img src="../images-anas/way-to-better-grade.svg" class="img3">
-                            </div>
-                            <div class="show-result" id="show-evaluation">
-                                <h1 class="demo-title" id="title4">You are:</h1>
-                            </div>
-                        </div>
-
-
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -207,6 +175,7 @@
         </script>
     <script src="../js-anas/menu.js"></script>
     <script src="../js-anas/calculator.js"></script>
+
 
 
 </body>

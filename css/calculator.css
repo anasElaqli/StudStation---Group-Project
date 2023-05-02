@@ -1,21 +1,75 @@
-:root{
+:root {
     --light-primary: #049ca7;
     --dark-primary: #023344;
 }
+
+.calc-container {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%; */
+}
+
 .calculator-card {
+    border-radius: 12px;
     display: grid;
     grid-template-columns: repeat(1, auto);
     grid-gap: 1rem;
     margin-top: 3rem;
     padding: 1.75rem;
-    border-radius: 12px;
     background-color: var(--light-primary);
     align-items: center;
     justify-content: center;
     margin: auto;
     width: 100%;
-    
 }
+
+.result-div {
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    background-color: var(--light-primary);
+
+    /* display: grid; */
+    grid-template-columns: repeat(2, auto);
+    margin-top: 2rem;
+    padding: 1.75rem;
+    width: 100%;
+    color: #01273e;
+
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#title1,
+#title4 {
+    color: rgb(239, 196, 3);
+    font-size: 1.8rem;
+}
+
+#title2 {
+    color: rgb(19, 239, 3);
+    font-size: 1.8rem;
+}
+
+#title3 {
+    color: rgb(202, 49, 49);
+    font-size: 1.8rem;
+}
+
+.result-div li {
+    margin-bottom: 1.1rem;
+}
+
+.img2 {
+    width: 16rem;
+    height: 16rem;
+}
+
+.img3 {
+    width: 14rem;
+    height: 14rem;
+}
+
+
 
 .user-card {
     font-family: 'Ubuntu', sans-serif;
@@ -47,7 +101,7 @@
 
 
 .num-text {
-    color: #01141c; 
+    color: #01141c;
     font-size: 1.2rem;
     font-weight: bolder;
     font-family: 'Ubuntu', sans-serif;
@@ -61,9 +115,9 @@ input:focus {
 #numSubjects {
     background-color: var(--light-primary);
     border-radius: 12px;
-    border:1px #013549 solid ; 
-    border-right:#05455b  1px solid;
-    border-bottom:#054c64  1px solid;
+    border: 1px #013549 solid;
+    border-right: #05455b 1px solid;
+    border-bottom: #054c64 1px solid;
     padding: 1rem;
     padding-left: 2rem;
     padding-right: 4rem;
@@ -73,7 +127,7 @@ input:focus {
 input {
     background-color: #036184;
     border-radius: 12px;
-    border:1.5px #001d28 solid ; 
+    border: 1.5px #001d28 solid;
     padding: 0.5rem;
 }
 
@@ -86,7 +140,7 @@ input {
     color: var(--dark-primary);
     font-family: 'Ubuntu', sans-serif;
     margin-top: 3rem;
-    
+
 }
 
 .next-btn,
@@ -113,12 +167,7 @@ input {
     margin: 0;
 }
 
-.calc-container {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
+
 
 .calc-title {
     margin-bottom: 2rem;
@@ -152,4 +201,38 @@ input::placeholder {
         margin-left: 5rem;
         margin-right: 5rem;
     }
+}
+
+
+/* System Option */
+.sys-icon {
+    border: 4px solid #01737b;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    width: 6rem;
+    height: 6rem;
+    margin-right: 2rem;
+    margin-left: 1rem;
+
+    border-radius: 50%;
+}
+
+.sys-icon:active, .sys-icon:focus, .sys-icon:hover{
+    border-color: rgb(255, 213, 0);
+    box-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+  }
+
+.system-option {
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    display: flex;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 1rem;
+}
+
+.icon-grid{
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }

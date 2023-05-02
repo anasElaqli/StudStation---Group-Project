@@ -13,9 +13,9 @@ function validateForm() {
     if (numInput.value > 30) {
         alert("max valid number of subjects is: 30");
         return false;
-      }
+    }
     createInputs();
-  return true;
+    return true;
 }
 
 
@@ -45,7 +45,7 @@ function createInputs() {
     avgBtn.textContent = 'Calculate Average';
     avgBtn.style.borderRadius = '10px';
     avgBtn.style.width = '20rem';
-    avgBtn.style.fontFamily =  'Ubuntu';
+    avgBtn.style.fontFamily = 'Ubuntu';
     card.appendChild(avgBtn);
     userCard.style.display = 'grid';
 
@@ -84,18 +84,36 @@ function createInputs() {
 
     }
 
+    // Create the input for the user to enter their wished average grade
+    let label2 = document.createElement("h4");
+    label2.innerHTML = 'Your aimed average grade:';
+    label2.style.margin = '0';
+    let wishInput = document.createElement("input");
+    wishInput.setAttribute('class', 'wish-input');
+    wishInput.setAttribute('type', 'number');
+    wishInput.setAttribute('name', `wish-input`);
+    wishInput.setAttribute('placeholder', `What is the average grade that you want to get?`);
+    userCard.appendChild(label2);
+    userCard.appendChild(wishInput);
+
 }
 
 function calculateAverage() {
-    const numSubjects = document.getElementById("numSubjects").value;
-    const results = document.getElementById("results");
+    let numSubjects = document.getElementById("numSubjects").value;
+    let results = document.getElementById("results");
     results.innerHTML = "";
+
+
 
     let totalGrade = 0;
     let totalGPA = 0;
     let totalFrench = 0;
     let totalHungarian = 0;
     let validInputs = true;
+    let maxGrade = 0;
+    let minGrade = 0;
+
+    let gradesArray = []; //add grades to an array
 
     for (let i = 1; i <= numSubjects; i++) {
         const grade = parseInt(document.getElementsByName(`subject${i}Grade`)[0].value);
@@ -105,6 +123,10 @@ function calculateAverage() {
             break;
         }
 
+        // take the max and min grades
+        gradesArray.push(grade);
+
+
         totalGrade += grade;
         totalGPA += calculateGPA(grade);
         totalFrench += calculateFrench(grade);
@@ -113,8 +135,30 @@ function calculateAverage() {
 
     if (!validInputs) {
         results.innerHTML = "Please enter valid grades for all subjects";
+        alert("Please enter valid grades for all subjects");
         return;
     }
+    // take max and min from gradesArray
+    maxGrade = Math.max(...gradesArray);
+    minGrade = Math.min(...gradesArray);
+
+    let maxResult = document.createElement('div');
+    let minResult = document.createElement('div');
+
+    maxResult.innerHTML = `<ul>
+    <li>${maxGrade.toFixed(2)}%</li>
+    <li>${calculateGPA(maxGrade).toFixed(2)} (GPA)</li>
+    <li>${calculateFrench(maxGrade).toFixed(2)} (French System)</li>
+    <li>${calculateHungarian(maxGrade).toFixed(2)} (Hungarian System)</li>
+    </ul>`;
+
+    minResult.innerHTML = `<ul>
+    <li>${minGrade.toFixed(2)}%</li>
+    <li>${calculateGPA(minGrade).toFixed(2)} (GPA)</li>
+    <li>${calculateFrench(minGrade).toFixed(2)} (French System)</li>
+    <li>${calculateHungarian(minGrade).toFixed(2)} (Hungarian System)</li>
+    </ul>`;
+
 
     const averageGrade = totalGrade / numSubjects;
     const averageGPA = totalGPA / numSubjects;
@@ -122,11 +166,56 @@ function calculateAverage() {
     const averageHungarian = totalHungarian / numSubjects;
 
     results.innerHTML = `
-      <p>Your average grade in percentage is: ${averageGrade}%</p>
-      <p>Your average GPA is: ${averageGPA.toFixed(2)}</p>
-      <p>Your average French grade is: ${averageFrench.toFixed(2)}</p>
-      <p>Your average Hungarian grade is: ${averageHungarian.toFixed(2)}</p>
-    `;
+    <ul>
+      <li>Your average grade in percentage is: <b>${averageGrade.toFixed(2)}%</b></li>
+      <li>Your average GPA is: <b>${averageGPA.toFixed(2)}</b></li>
+      <li>Your average French grade is: <b>${averageFrench.toFixed(2)}</b></li>
+      <li>Your average Hungarian grade is: <b>${averageHungarian.toFixed(2)}</b></li>
+    <ul> `;
+
+    let evalution = document.createElement('div');
+    let difference = Math.abs(50 - averageGrade).toFixed(2);
+    let comparison = averageGrade > 50 ? "more" : "less";
+    let wishedGrade = parseInt(document.getElementsByName('wish-input')[0].value);
+    let wishedDifference = Math.abs(wishedGrade - averageGrade).toFixed(2);
+    let wishedComparison = averageGrade < wishedGrade ? `away from your goal (${wishedGrade}%)` : `more than you wanted (${wishedGrade}%)`;
+
+    evalution.innerHTML = `<ul>
+    <li>${(100 - averageGrade).toFixed(2)}% away from 100%</li>
+    <li>${difference}% ${comparison} than 50%</li>
+    </ul>
+    <h1>${wishedDifference}% ${wishedComparison}</h1>`;
+
+    //Hide grades form
+    document.getElementById('calculator-card').style.display = 'none';
+
+
+
+    // Create a container element to hold the results
+    let showResult = document.getElementById('show-result');
+    showResult.appendChild(results);
+    let showMax = document.getElementById('show-max');
+    showMax.appendChild(maxResult);
+    let showMin = document.getElementById('show-min');
+    showMin.appendChild(minResult);
+
+    let showEvaluation = document.getElementById('show-evaluation');
+    showEvaluation.appendChild(evalution);
+
+    // Show results 
+    let resultDiv = document.getElementById('result-div');
+    resultDiv.style.display = 'grid';
+
+    let maxDiv = document.getElementById('best-grade');
+    maxDiv.style.display = 'grid';
+
+    let minDiv = document.getElementById('worst-grade');
+    minDiv.style.display = 'grid';
+
+    let evaluationDiv = document.getElementById('evaluation-div');
+    evaluationDiv.style.display = 'grid';
+
+
 }
 
 function calculateGPA(grade) {
@@ -144,9 +233,20 @@ function calculateGPA(grade) {
 }
 
 function calculateFrench(grade) {
-    return grade / 20.0;
+    return grade / 5.0;
 }
 
 function calculateHungarian(grade) {
-    return grade / 5.0;
+
+    return grade / 20.0;
 }
+
+
+
+
+
+
+
+
+
+
