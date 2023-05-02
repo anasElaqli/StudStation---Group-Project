@@ -201,6 +201,11 @@ input::placeholder {
         margin-left: 5rem;
         margin-right: 5rem;
     }
+
+    .result-div{
+        grid-template-columns: repeat(1, auto);
+        width: auto;
+    }
 }
 
 

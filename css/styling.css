@@ -489,11 +489,13 @@ text-right {
 @media (max-width: 900px) {
     .services {
         display: grid;
+      
     }
 
     .service-card {
         display: grid;
         grid-template-columns: repeat(1, auto);
+        
     }
 
     .btn-container2 {
