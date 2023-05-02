@@ -168,9 +168,9 @@ function calculateAverage() {
     results.innerHTML = `
     <ul>
       <li>Your average grade in percentage is: <b>${averageGrade.toFixed(2)}%</b></li>
-      <li>Your average GPA is: <b>${averageGPA.toFixed(2)}</b></li>
-      <li>Your average French grade is: <b>${averageFrench.toFixed(2)}</b></li>
-      <li>Your average Hungarian grade is: <b>${averageHungarian.toFixed(2)}</b></li>
+      <li>Your average GPA is: <b>${averageGPA.toFixed(2)}/4.00</b></li>
+      <li>Your average French grade is: <b>${averageFrench.toFixed(2)}/20.00</b></li>
+      <li>Your average Hungarian grade is: <b>${averageHungarian.toFixed(2)}/5.00</b></li>
     <ul> `;
 
     let evalution = document.createElement('div');
