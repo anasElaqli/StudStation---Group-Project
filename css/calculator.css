@@ -243,3 +243,11 @@ input::placeholder {
     justify-content: center;
     text-align: center;
 }
+
+.sys-types{
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: #012629;
+    font-family: 'Ubuntu', sans-serif;
+    
+}
