@@ -10,7 +10,7 @@
     <div class="container">
       <h1>Todo List</h1>
 
-      <h2>Onvoltooide taken</h2>
+      <h2>Not completed</h2>
       <table class="table" id="incompleted-todos">
         <thead>
           <tr>
@@ -25,7 +25,7 @@
         </tbody>
       </table>
 
-      <h2>Voltooide taken</h2>
+      <h2>Completed</h2>
       <table class="table" id="completed-todos">
         <thead>
           <tr>
@@ -40,28 +40,28 @@
       </table>
       <form id="add-todo-form">
         <div class="form-group">
-          <label for="todo-name">Naam:</label>
+          <label for="todo-name">Name:</label>
           <input type="text" class="form-control" id="todo-name" name="name" required>
         </div>
         <div class="form-group">
-          <label for="todo-category">Categorie:</label>
+          <label for="todo-category">Category:</label>
           <select class="form-control" id="todo-category" name="category" required>
-            <option value="">Selecteer categorie</option>
+            <option value="">Select a category</option>
             <option value="Homework">Homework</option>
             <option value="Project">Project</option>
             <option value="Exam">Exam</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="todo-priority">Prioriteit:</label>
+          <label for="todo-priority">Priority:</label>
           <select class="form-control" id="todo-priority" name="priority" required>
-            <option value="">Selecteer prioriteit</option>
+            <option value="">Select priority</option>
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary">Toevoegen</button>
+        <button type="submit" class="btn btn-primary">Add</button>
       </form>
       
     </div>
