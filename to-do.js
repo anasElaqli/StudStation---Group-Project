@@ -193,22 +193,22 @@ function addTodo() {
   const incompletedTodoTable = document.getElementById("incomplete-todos");
   const incompletedTodoTableBody =
     incompletedTodoTable.getElementsByTagName("tbody")[0];
-  const todoName = document.getElementById("todo-name").value;
-  const todoCategory = document.getElementById("todo-category").value;
-  const todoPriority = document.getElementById("todo-priority").value;
+  const todoName = document.getElementById("todo-name");
+  const todoCategory = document.getElementById("todo-category");
+  const todoPriority = document.getElementById("todo-priority");
 
   const newRow = document.createElement("tr");
 
   const nameCell = document.createElement("td");
-  nameCell.innerText = todoName;
+  nameCell.innerText = todoName.value;
   newRow.appendChild(nameCell);
 
   const categoryCell = document.createElement("td");
-  categoryCell.innerText = todoCategory;
+  categoryCell.innerText = todoCategory.value;
   newRow.appendChild(categoryCell);
 
   const priorityCell = document.createElement("td");
-  priorityCell.innerText = todoPriority;
+  priorityCell.innerText = todoPriority.value;
   newRow.appendChild(priorityCell);
 
   const completedCell = document.createElement("td");
@@ -220,6 +220,11 @@ function addTodo() {
   newRow.appendChild(completedCell);
 
   incompletedTodoTableBody.appendChild(newRow);
+
+  todoName.value = "";
+  todoCategory.value = "";
+  todoPriority.value = "";
+
   sortByPriority();
 }
 function moveCompletedTask() {
