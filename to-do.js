@@ -12,7 +12,7 @@ function initializeApp() {
   notCompleteSubHeader.textContent = "Not completed";
 
   const notCompleteTable = document.createElement("table");
-  notCompleteTable.classList.add("table");
+  notCompleteTable.className = "table";
   notCompleteTable.setAttribute("id", "incomplete-todos");
 
   const notCompleteTableHead = document.createElement("thead");
@@ -46,7 +46,7 @@ function initializeApp() {
   completeSubHeader.textContent = "Completed";
 
   const completeTable = document.createElement("table");
-  completeTable.classList.add("table");
+  completeTable.className = "table";
   completeTable.setAttribute("id", "completed-todos");
 
   const completeTableHead = document.createElement("thead");
@@ -81,7 +81,7 @@ function initializeApp() {
   });
 
   const nameDiv = document.createElement("div");
-  nameDiv.classList.add("form-group");
+  nameDiv.className = "form-group";
 
   const nameLabel = document.createElement("label");
   nameLabel.setAttribute("for", "todo-name");
@@ -92,13 +92,13 @@ function initializeApp() {
   nameInput.setAttribute("id", "todo-name");
   nameInput.setAttribute("name", "name");
   nameInput.setAttribute("required", "");
-  nameInput.classList.add("form-control");
+  nameInput.className = "form-control";
 
   nameDiv.appendChild(nameLabel);
   nameDiv.appendChild(nameInput);
 
   const categoryDiv = document.createElement("div");
-  categoryDiv.classList.add("form-group");
+  categoryDiv.className = "form-group";
 
   const categoryLabel = document.createElement("label");
   categoryLabel.setAttribute("for", "todo-category");
@@ -108,7 +108,7 @@ function initializeApp() {
   categoryInput.setAttribute("id", "todo-category");
   categoryInput.setAttribute("name", "category");
   categoryInput.setAttribute("required", "");
-  categoryInput.classList.add("form-control");
+  categoryInput.className = "form-control";
 
   const categoryOption1 = document.createElement("option");
   categoryOption1.setAttribute("value", "");
@@ -135,7 +135,7 @@ function initializeApp() {
   categoryDiv.appendChild(categoryInput);
 
   const priorityDiv = document.createElement("div");
-  priorityDiv.classList.add("form-group");
+  priorityDiv.className = "form-group";
 
   const priorityLabel = document.createElement("label");
   priorityLabel.setAttribute("for", "todo-priority");
@@ -145,7 +145,7 @@ function initializeApp() {
   priorityInput.setAttribute("id", "todo-priority");
   priorityInput.setAttribute("name", "priority");
   priorityInput.setAttribute("required", "");
-  priorityInput.classList.add("form-control");
+  priorityInput.className = "form-control";
 
   const priorityOption1 = document.createElement("option");
   priorityOption1.setAttribute("value", "");
@@ -173,8 +173,7 @@ function initializeApp() {
 
   const submitButton = document.createElement("button");
   submitButton.setAttribute("type", "submit");
-  submitButton.classList.add("btn");
-  submitButton.classList.add("btn-primary");
+  submitButton.className = "btn btn-primary";
   submitButton.textContent = "Add";
 
   todoForm.appendChild(nameDiv);
@@ -254,7 +253,7 @@ function sortByPriority() {
     const priorityOrder = {
       High: 0,
       Medium: 1,
-      Low: 2,
+      Low: 2
     };
 
     // Vergelijk de prioriteit van de todos
