@@ -1,18 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
+  //Call the initialize app function when dom content has been loaded
   initializeApp();
 });
 function initializeApp() {
   //Create app
   const appElem = document.getElementById("app");
 
+  //Creating elements
   const todoHeader = document.createElement("h1");
+
+  //Adding text to elements
   todoHeader.textContent = "Todo list";
 
   const notCompleteSubHeader = document.createElement("h2");
   notCompleteSubHeader.textContent = "Not completed";
 
   const notCompleteTable = document.createElement("table");
+
+  //Adding classes to elements
   notCompleteTable.className = "table";
+
+  //Setting attributes to elements
   notCompleteTable.setAttribute("id", "incomplete-todos");
 
   const notCompleteTableHead = document.createElement("thead");
@@ -30,6 +38,7 @@ function initializeApp() {
   const notCompleteTableHeadRow4 = document.createElement("th");
   notCompleteTableHeadRow4.textContent = "Mark as completed";
 
+  //Appending elements to their parent element
   notCompleteTableHeadRow.appendChild(notCompleteTableHeadRow1);
   notCompleteTableHeadRow.appendChild(notCompleteTableHeadRow2);
   notCompleteTableHeadRow.appendChild(notCompleteTableHeadRow3);
@@ -75,6 +84,7 @@ function initializeApp() {
   const todoForm = document.createElement("form");
   todoForm.setAttribute("id", "add-todo-form");
 
+  //Prevent the default behaviour of the form submit, and instead call the addTodo function on submit
   todoForm.addEventListener("submit", function (event) {
     event.preventDefault();
     addTodo();
@@ -188,84 +198,99 @@ function initializeApp() {
   appElem.appendChild(completeTable);
   appElem.appendChild(todoForm);
 }
+
 function addTodo() {
+  //Finding the incompletedTodoTable lement and its body element
   const incompletedTodoTable = document.getElementById("incomplete-todos");
   const incompletedTodoTableBody =
     incompletedTodoTable.getElementsByTagName("tbody")[0];
+
+  //Retrieving the new todo name, category and priority from the form
   const todoName = document.getElementById("todo-name");
   const todoCategory = document.getElementById("todo-category");
   const todoPriority = document.getElementById("todo-priority");
 
+  //Creating a new row
   const newRow = document.createElement("tr");
 
+  //Creating cells for name, category and priority and a checkbox
   const nameCell = document.createElement("td");
   nameCell.innerText = todoName.value;
-  newRow.appendChild(nameCell);
 
   const categoryCell = document.createElement("td");
   categoryCell.innerText = todoCategory.value;
-  newRow.appendChild(categoryCell);
 
   const priorityCell = document.createElement("td");
   priorityCell.innerText = todoPriority.value;
-  newRow.appendChild(priorityCell);
 
   const completedCell = document.createElement("td");
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
+
+  //When checkbox is clicked, call the moveCompletedTask function
   checkbox.addEventListener("click", moveCompletedTask);
 
+  //Append the checkbox to the cell
   completedCell.appendChild(checkbox);
+
+  //Append the cells to the row
+  newRow.appendChild(nameCell);
+  newRow.appendChild(categoryCell);
+  newRow.appendChild(priorityCell);
   newRow.appendChild(completedCell);
 
+  //Add the row to the table body
   incompletedTodoTableBody.appendChild(newRow);
 
+  //Reset the form values
   todoName.value = "";
   todoCategory.value = "";
   todoPriority.value = "";
 
+  //Call the function to sort the tasks
   sortByPriority();
 }
+
 function moveCompletedTask() {
+  //Find the completed todos table
   const completedTodoTable = document.getElementById("completed-todos");
-  const checkbox = this;
-  const row = checkbox.parentNode.parentNode;
-  const table = row.parentNode;
 
-  //console.log(row, table);
+  //Find the row that belongs to the checkbox that has been clicked
+  const row = this.parentNode.parentNode;
 
-  //if (table.id === "incomplete-todos") {
-
+  //Move the row to the completed todos table, and remove the checkbox from it
   completedTodoTable.appendChild(row);
-  checkbox.remove();
-  //}
+  this.remove();
 }
+
 function sortByPriority() {
+  //Find the incomplete todos table, its body and then its rows
   const incompletedTodoTable = document.getElementById("incomplete-todos");
   const tbody = incompletedTodoTable.querySelector("tbody");
   const rows = Array.from(tbody.querySelectorAll("tr"));
 
   rows.sort(function (a, b) {
+    //Find the priority cells
     const priorityA = a.cells[2].textContent;
     const priorityB = b.cells[2].textContent;
 
-    // Definieer de prioriteitsvolgorde
+    //Define the order of priorities
     const priorityOrder = {
       High: 0,
       Medium: 1,
       Low: 2
     };
 
-    // Vergelijk de prioriteit van de todos
+    //Sort by priority
     return priorityOrder[priorityA] - priorityOrder[priorityB];
   });
 
-  // Verwijder de bestaande rijen
+  //Remove the old rows
   while (tbody.firstChild) {
     tbody.removeChild(tbody.firstChild);
   }
 
-  // Voeg de gesorteerde rijen toe aan de tabel
+  //Add the new (sorted) rows
   for (const row of rows) {
     tbody.appendChild(row);
   }
