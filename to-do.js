@@ -10,10 +10,11 @@ function initializeApp() {
   const todoHeader = document.createElement("h1");
 
   //Adding text to elements
-  todoHeader.textContent = "Todo list";
+  todoHeader.textContent = "To do list";
 
   const notCompleteSubHeader = document.createElement("h2");
   notCompleteSubHeader.textContent = "Not completed";
+  
 
   const notCompleteTable = document.createElement("table");
 
