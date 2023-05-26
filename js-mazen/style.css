@@ -1,0 +1,101 @@
+:root {
+    --border-color: rgb(185, 185, 185);
+    --bg-light-primary: #94c1ff;
+    --bg-light-secondary: #d1d0d0;
+    --bg-light-success: #7ce294;
+    --bg-light-danger: #f6abb2;
+    --bg-light-warning: #eaeb86;
+    --bg-light-info: #b0f4ff;
+}
+
+html, body {
+    height: 100%;
+    background-color: rgb(209, 209, 209);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container {
+    flex: 1;
+}
+
+.status-bar {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.status-bar > div {
+    margin-left: 10px;
+}
+
+.row {
+    width: 100%;
+}
+
+.main-menu {
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.menu-btn {
+    display: block;
+    margin: 10px 0 10px 0;
+    width: 80%;
+}
+
+/* Calender app */
+
+.timetable-container {
+    position: relative;
+}
+
+.btn-group {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.time-input-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+input[type="time"] {
+    width: 100%;
+    padding-top: 5rem;
+}
+
+.table {
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 3px solid black;
+}
+
+.table tr > :first-child {
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+  }
