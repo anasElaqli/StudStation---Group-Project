@@ -1,0 +1,38 @@
+:root{
+    --light-primary: #049ca7;
+    --dark-primary: #023344;
+}
+.btn {
+    transition: transform 0.3s ease-in-out;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Ubuntu', sans-serif;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.btn-primary span,
+.btn-secondary span {
+    padding-left: 1px;
+}
+
+.btn-primary {
+    border-radius: 7px;
+    border: #024963 1.5px solid;
+    color: #fff;
+    background: var(--light-primary);
+    padding: 0.2rem 2rem;
+}
+
+h2, h1{
+    color: var(--dark-primary);
+    font-family: 'Ubuntu', sans-serif;
+}
+.logo_icon{
+    margin-left: 2rem;
+}

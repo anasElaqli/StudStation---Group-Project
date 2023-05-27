@@ -1,0 +1,253 @@
+:root {
+    --light-primary: #049ca7;
+    --dark-primary: #023344;
+}
+
+.calc-container {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%; */
+}
+
+.calculator-card {
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    grid-gap: 1rem;
+    margin-top: 3rem;
+    padding: 1.75rem;
+    background-color: var(--light-primary);
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+}
+
+.result-div {
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    background-color: var(--light-primary);
+
+    /* display: grid; */
+    grid-template-columns: repeat(2, auto);
+    margin-top: 2rem;
+    padding: 1.75rem;
+    width: 100%;
+    color: #01273e;
+
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#title1,
+#title4 {
+    color: rgb(239, 196, 3);
+    font-size: 1.8rem;
+}
+
+#title2 {
+    color: rgb(19, 239, 3);
+    font-size: 1.8rem;
+}
+
+#title3 {
+    color: rgb(202, 49, 49);
+    font-size: 1.8rem;
+}
+
+.result-div li {
+    margin-bottom: 1.1rem;
+}
+
+.img2 {
+    width: 16rem;
+    height: 16rem;
+}
+
+.img3 {
+    width: 14rem;
+    height: 14rem;
+}
+
+
+
+.user-card {
+    font-family: 'Ubuntu', sans-serif;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(1, auto);
+    background-color: var(--dark-primary);
+    color: aliceblue;
+    grid-gap: 0.5rem;
+
+    margin-top: 3rem;
+    padding: 2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    border-radius: 12px;
+    margin: 1rem;
+
+}
+
+.user-card input::placeholder {
+    color: var(--dark-primary);
+}
+
+.user-card input {
+    width: 20rem;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.num-text {
+    color: #01141c;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    font-family: 'Ubuntu', sans-serif;
+    margin-bottom: 1rem;
+}
+
+input:focus {
+    outline: none;
+}
+
+#numSubjects {
+    background-color: var(--light-primary);
+    border-radius: 12px;
+    border: 1px #013549 solid;
+    border-right: #05455b 1px solid;
+    border-bottom: #054c64 1px solid;
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 4rem;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+input {
+    background-color: #036184;
+    border-radius: 12px;
+    border: 1.5px #001d28 solid;
+    padding: 0.5rem;
+}
+
+.calc-title {
+    font-size: 3rem;
+    line-height: 1;
+    text-align: center;
+    margin: 0;
+    font-weight: bolder;
+    color: var(--dark-primary);
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 3rem;
+
+}
+
+.next-btn,
+.avgBtn {
+    padding: -1rem;
+    width: 20rem;
+    background-color: #013e55;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.btn-contaner {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+
+
+.calc-title {
+    margin-bottom: 2rem;
+}
+
+.numSubjects {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+
+
+input::placeholder {
+    color: #014b63;
+}
+
+
+@media (max-width: 900px) {
+    .user-card {
+        grid-template-columns: repeat(1, auto);
+        margin: 1rem;
+
+    }
+
+    .calculator-card {
+        width: auto;
+        margin: 1rem;
+    }
+
+    .numSubjects {
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+
+    .result-div{
+        grid-template-columns: repeat(1, auto);
+        width: auto;
+    }
+}
+
+
+/* System Option */
+.sys-icon {
+    border: 4px solid #012629;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    margin-right: 4rem;
+    margin-left: 4rem;
+    border-radius: 50%;
+  
+    width: 5rem;
+    height: 5rem;
+  }
+
+.sys-icon:active,
+.sys-icon:focus,
+.sys-icon:hover {
+    border-color: rgb(255, 213, 0);
+    box-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+}
+
+.system-option {
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    display: flex;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 1rem;
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.sys-types{
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: #012629;
+    font-family: 'Ubuntu', sans-serif;
+    
+}
