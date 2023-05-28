@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-  //Call the initialize app function when dom content has been loaded
+  /*Call the initialize app function when dom content has been loaded (as soon as DOM can fully manipulated)
+  The initielizeApp function creates all the elements 
+  This was done with a single html file in mind like in class, where content was dynamically changed,
+  with the user able to choose an application by clicking a button (which would've loaded this initializeApp function)*/
   initializeApp();
 });
 function initializeApp() {
@@ -14,7 +17,6 @@ function initializeApp() {
 
   const notCompleteSubHeader = document.createElement("h2");
   notCompleteSubHeader.textContent = "Not completed";
-  
 
   const notCompleteTable = document.createElement("table");
 
