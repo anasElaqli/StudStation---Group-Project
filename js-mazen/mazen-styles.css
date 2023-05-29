@@ -62,12 +62,26 @@ body {
     position: relative;
 }
 
+
 .btn-group {
     position: fixed;
-    top: 0;
-    left: 50%;
+    top: 18px;
+    left: 24%;
     transform: translateX(-50%);
     z-index: 100;
+    width: 200px; 
+    height: 60px; 
+}
+
+/* each button */
+.btn-group button {
+    width: 100px; 
+    margin-right: 2px; 
+}
+
+/* for the hover effect */
+.btn-group button:hover {
+    transform: translateY(-4px); 
 }
 
 .table-bordered th,
