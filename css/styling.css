@@ -241,11 +241,13 @@ text-right {
     background-color: var(--light-primary);
     color: var(--dark-primary);
     color: aliceblue;
+    padding-bottom: 1.5rem;
+    margin-bottom: 0;
 }
 
 .student-img img {
-    width: 20rem;
-    height: 20rem;
+    width: 17rem;
+    height: 17rem;
 }
 
 .intro-container {
@@ -259,6 +261,7 @@ text-right {
 
 .about-platform {
     flex-basis: 65%;
+    margin-bottom: 0;
 }
 
 .section-title {
@@ -275,7 +278,7 @@ text-right {
 }
 
 .btn-container {
-    margin-top: 2.7rem;
+    margin-top: 0rem;
     text-align: center;
     padding: 1rem;
 }
@@ -291,6 +294,7 @@ text-right {
 
 .btn {
     transition: transform 0.3s ease-in-out;
+    margin: 0;
     margin-left: 1rem;
     margin-right: 1rem;
     cursor: pointer;
@@ -389,7 +393,7 @@ text-right {
     height: 15rem;
 }
 .show-image{
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
 }
@@ -421,6 +425,7 @@ text-right {
 #services {
     display: flex;
     background-color: rgb(253, 253, 253);
+    margin-top: 0;
 
 }
 

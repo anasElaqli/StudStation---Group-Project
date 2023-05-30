@@ -1,25 +1,150 @@
 .nav-header {
     font-size: 1.5rem;
 }
-  
+
 .row {
     width: 100%;
 }
-  
+
 #sourceImage,
 .image-controls,
 .image-save,
 .preset-filters {
     display: none;
 }
-  
+
 .image-preview {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 20px;
 }
-  
+
 #canvas {
-    max-height: 420px;
+    max-height: 26.25rem;
     object-fit: contain;
+}
+
+
+/* Styles additions */
+button {
+    border: #011c26 1.5px solid;
+    color: #fff;
+    background: #022d3c;
+    cursor: pointer;
+    padding: 0.5rem 2rem;
+    border-radius: 6px;
+    font-family: 'Ubuntu', sans-serif;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+}
+
+button:hover {
+    border: #022d3c 1.5px solid;
+    background: #02a1b9;
+    /* Move up on hover */
+    transform: translateY(-0.4rem);
+}
+
+
+/* Footer */
+
+.the-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+#footer {
+    background-color: var(--light-primary);
+    padding: 1rem;
+}
+
+.logo_icon2 img {
+    fill: var(--dark-primary);
+}
+
+#footer a,
+#footer h4 {
+    color: var(--dark-primary)
+}
+
+
+
+.footer-icons {
+    box-sizing: border-box;
+    display: block;
+}
+
+.footer-icons svg {
+    line-height: 1;
+    transition: 0.3s;
+    margin: 2rem;
+    padding: 0;
+}
+
+.footer-icons a {
+    text-decoration: none;
+    color: var(--dark-primary);
+}
+
+.owner2 {
+    line-height: 10px;
+    display: block;
+    margin: 0;
+}
+
+.brand2 a {
+    text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.brand2 {
+    margin-bottom: 1.7rem;
+}
+
+.job2 a {
+    text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+@media (max-width: 768px) {
+    .the-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .owner2 {
+        line-height: 14px;
+    }
+
+    .brand2 a {
+        font-size: 2rem;
+    }
+
+    .owner2 span {
+        text-align: center;
+    }
+}
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
 }
