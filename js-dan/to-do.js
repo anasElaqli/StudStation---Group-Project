@@ -267,7 +267,7 @@ function moveCompletedTask() {
 
   //Move the row to the completed todos table, and remove the checkbox from it
   completedTodoTable.appendChild(row);
-  this.remove();
+  this.parentNode.remove();
 }
 
 function sortByPriority() {
