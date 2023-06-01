@@ -1,0 +1,15 @@
+td {
+    font-weight: bold;
+}
+
+.Low {
+    color: #8bc34a;
+}
+
+.Medium {
+    color: #ff9800;
+}
+
+.High {
+    color: #f44336;
+}

@@ -225,6 +225,10 @@ function addTodo() {
 
   const priorityCell = document.createElement("td");
   priorityCell.innerText = todoPriority.value;
+  priorityCell.className = todoPriority.value;
+
+  //When priortiy is clicked, call the loadPrioritySelect function
+  priorityCell.addEventListener("click", loadPrioritySelect);
 
   const completedCell = document.createElement("td");
   const checkbox = document.createElement("input");
@@ -297,4 +301,66 @@ function sortByPriority() {
   for (const row of rows) {
     tbody.appendChild(row);
   }
+}
+
+function loadPrioritySelect() {
+  //Create the form and add even listener that calls the changePriority function when select option is changed
+  const priorityForm = document.createElement("select");
+  priorityForm.addEventListener("change", changePriority);
+
+  //Create option elements for low, medium and high, and make the current value selected
+  const optionLow = document.createElement("option");
+  optionLow.setAttribute("value", "Low");
+  optionLow.textContent = "Low";
+  if (this.textContent === "Low") {
+    optionLow.selected = true;
+  }
+
+  const optionMedium = document.createElement("option");
+  optionMedium.setAttribute("value", "Medium");
+  optionMedium.textContent = "Medium";
+  if (this.textContent === "Medium") {
+    optionMedium.selected = true;
+  }
+
+  const optionHigh = document.createElement("option");
+  optionHigh.setAttribute("value", "High");
+  optionHigh.textContent = "High";
+  if (this.textContent === "High") {
+    optionHigh.selected = true;
+  }
+
+  //Remove current text content from the cell
+  this.textContent = "";
+
+  //Append the options to the select
+  priorityForm.appendChild(optionLow);
+  priorityForm.appendChild(optionMedium);
+  priorityForm.appendChild(optionHigh);
+
+  //Appedn the select to the cell
+  this.appendChild(priorityForm);
+
+  //Remove the current event listener
+  this.removeEventListener("click", loadPrioritySelect);
+}
+
+function changePriority() {
+  //Find the cell and store the new value of the priority
+  const parentCell = this.parentNode;
+  const newPriority = this.value;
+
+  //Remove the form
+  while (parentCell.firstChild) {
+    parentCell.removeChild(parentCell.firstChild);
+  }
+
+  //Set new classname and text for the new priority level, and add the event listener for loading the priority changer
+  parentCell.className = newPriority;
+  parentCell.textContent = newPriority;
+
+  parentCell.addEventListener("click", loadPrioritySelect);
+
+  //Call the function for sorting the todos by priority
+  sortByPriority();
 }
