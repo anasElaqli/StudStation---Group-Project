@@ -1,15 +1,15 @@
 td {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .Low {
-    color: #8bc34a;
+  color: #8bc34a;
 }
 
 .Medium {
-    color: #ff9800;
+  color: #ff9800;
 }
 
 .High {
-    color: #f44336;
+  color: #f44336;
 }

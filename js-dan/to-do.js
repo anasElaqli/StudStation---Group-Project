@@ -41,11 +41,15 @@ function initializeApp() {
   const notCompleteTableHeadRow4 = document.createElement("th");
   notCompleteTableHeadRow4.textContent = "Mark as completed";
 
+  const notCompleteTableHeadRow5 = document.createElement("th");
+  notCompleteTableHeadRow5.textContent = "Delete";
+
   //Appending elements to their parent element
   notCompleteTableHeadRow.appendChild(notCompleteTableHeadRow1);
   notCompleteTableHeadRow.appendChild(notCompleteTableHeadRow2);
   notCompleteTableHeadRow.appendChild(notCompleteTableHeadRow3);
   notCompleteTableHeadRow.appendChild(notCompleteTableHeadRow4);
+  notCompleteTableHeadRow.appendChild(notCompleteTableHeadRow5);
 
   notCompleteTableHead.appendChild(notCompleteTableHeadRow);
 
@@ -73,9 +77,13 @@ function initializeApp() {
   const completeTableHeadRow3 = document.createElement("th");
   completeTableHeadRow3.textContent = "Priority";
 
+  const completeTableHeadRow4 = document.createElement("th");
+  completeTableHeadRow4.textContent = "Delete";
+
   completeTableHeadRow.appendChild(completeTableHeadRow1);
   completeTableHeadRow.appendChild(completeTableHeadRow2);
   completeTableHeadRow.appendChild(completeTableHeadRow3);
+  completeTableHeadRow.appendChild(completeTableHeadRow4);
 
   completeTableHead.appendChild(completeTableHeadRow);
 
@@ -240,11 +248,22 @@ function addTodo() {
   //Append the checkbox to the cell
   completedCell.appendChild(checkbox);
 
+  //Delete button
+  const deleteCell = document.createElement("td");
+
+  const deleteButton = document.createElement("button");
+  deleteButton.className = "badge badge-danger";
+  deleteButton.textContent = "Delete";
+  deleteButton.addEventListener("click", deleteTodo);
+
+  deleteCell.appendChild(deleteButton);
+
   //Append the cells to the row
   newRow.appendChild(nameCell);
   newRow.appendChild(categoryCell);
   newRow.appendChild(priorityCell);
   newRow.appendChild(completedCell);
+  newRow.appendChild(deleteCell);
 
   //Add the row to the table body
   incompletedTodoTableBody.appendChild(newRow);
@@ -363,4 +382,9 @@ function changePriority() {
 
   //Call the function for sorting the todos by priority
   sortByPriority();
+}
+
+function deleteTodo() {
+  //Remove the row to which this button belongs
+  this.parentNode.parentNode.remove();
 }
